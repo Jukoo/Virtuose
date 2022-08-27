@@ -1,0 +1,8 @@
+Build/* 
+sysbuster/*
+toolchain/*
+tool*
+qemu-rpi-kernel/*
+rpis/rpi-buster/2022-04-04-raspios-buster-armhf-lite.img 
+qemu-rpi-kernel/
+rpis/rpi-buster/2022-04-04-raspios-buster-armhf-lite.img 

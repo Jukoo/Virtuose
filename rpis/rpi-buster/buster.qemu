@@ -1,0 +1,18 @@
+#!/bin/bash 
+
+set -e errexit  
+
+
+qemu-system-arm -M versatilepb \
+    -cpu arm1176 \
+    -m 256 \
+    -dtb ../../qemu-rpi-kernel/versatile-pb-buster.dtb \
+    -kernel ../../qemu-rpi-kernel/kernel-qemu-4.19.50-buster \
+    -append "root=/dev/sda2  panic=1 rootfstype=ext4 rw" \
+    -hda  ./2022-04-04-raspios-buster-armhf-lite.img \
+    -no-reboot \
+    -serial  stdio  \
+    -net nic \
+    -net user,hostfwd=tcp::3000-:22 
+
+
