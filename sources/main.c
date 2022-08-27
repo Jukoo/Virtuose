@@ -23,7 +23,7 @@ int  main ( int argc ,  char **argv ) {
     
     if  (!directory) 
     {
-        perror("DIR : ")  ; 
+        perror("DIR SCAN ")  ; 
         exit(EXIT_FAILURE) ;  
     } 
     
@@ -34,10 +34,10 @@ int  main ( int argc ,  char **argv ) {
         switch ( dir->d_type )  
         {
             case DT_REG :
-                fprintf (stdout , "::[File]:%s " , dir->d_name) ;  
+                fprintf (stdout , "::[File]:%s %c" , dir->d_name ,  0xa) ;  
                 break ; 
             case DT_DIR : 
-                fprintf (stdout , "::[DIR]:\x1b[1;35m%s/\x1b[0m"  ,dir->d_name) ;  
+                fprintf (stdout , "::[DIR]:\x1b[1;35m%s/\x1b[0m %c"  ,dir->d_name , 0xa ) ;  
                 break ; 
         }
          

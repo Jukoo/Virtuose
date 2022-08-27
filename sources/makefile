@@ -6,9 +6,10 @@ SRC=$(wildcard *.c )
 OBJ=$(SRC:.c=.o) 
 arch:=x86  
 
-ifneq ($(CC),cc)  
-	arch= arm   
-endif  
+ifeq ($(arch),arm)  
+	cc  = # arm toolchain   
+endif   
+
 bin =ld_$(arch) 
 
 all : $(bin) 
@@ -19,6 +20,7 @@ $(bin) :  $(OBJ)
 	$(CC)  $^ -o ../bin/$@  $(CFLAGS)  
 
 %.o :  %.c
+	if [ ! -d "../bin/" ];then  mkdir  "../bin/" ;fi 
 	@echo -e  " [ CC ] " 
 	$(CC)  -o $@ -c $<  $(CFLAGS) 
 

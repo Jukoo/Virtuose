@@ -11,8 +11,9 @@ bin=lsd_$(arch)
 all : $(bin)  
 	
 
-$(bin) : 
-	@cd  $(SRC) && $(MAKE) $@  
+$(bin) :  
+
+	@cd  $(SRC) && $(MAKE) 
 
 .PHONY :  clean  mproper  
 
